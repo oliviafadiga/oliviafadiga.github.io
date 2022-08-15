@@ -1,0 +1,214 @@
+/*loader spinner*/
+.loader_Spinner{
+  animation: fade-out 1s ease-out 1.5s;
+  animation-fill-mode: forwards;
+  width: 100vw;
+  height: 100vh;
+  background-color: $colour-white;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  opacity: 1;
+}
+.lds-hourglass {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  @include align-center-center;
+}
+.timer{
+  @include align-center-center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.lds-hourglass:after {
+  content: " ";
+  @include align-center-center;
+  border-radius: 50%;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid $colour-primary;
+  border-color:$colour-primary transparent $colour-primary transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    /*top: 0;*/
+  }
+  to {
+    top: -100vh;
+  }
+}
+/* Section fonctionnement */
+.fonctionnement {
+    margin-bottom: 30px;
+    padding: 20px;
+    &__menu {
+        @include align-center-center;
+        @include desktop-only{
+          justify-content: space-around;
+         }
+      }
+
+  }
+  .listeFonctionnement{
+   @include desktop-only{
+    display: contents;
+   }
+    list-style: none;
+    .btn {
+        width: 90%;
+        min-width: 280px;
+        max-width: 350px;
+        height: 70px;
+        text-decoration: none;
+        background-color: $colour-menu;
+        border-radius: 20px;
+        margin: 15px 0 15px 0;
+        box-shadow: 0px 5px 15px 2px $colour-accent;
+        display: flex;
+        align-items: center;
+        @include desktop-only{
+          width: 100%;
+          height: 60px;
+          min-width: 350px;
+          max-width: 500px;
+         }
+        i {
+            margin: 0 25px 0 25px;
+            opacity: 0.8;
+        }
+        &_chiffre {
+            width: 25px;
+            height: 25px;
+            background-color:$colour-primary;
+            border-radius: 20px;
+            color: $colour-white;
+            margin-left: -15px;
+            @include align-center-center;
+          }
+        &:hover {
+            background-color: rgba(147, 86, 220, 0.2);
+            i {
+                color: $colour-primary;
+                ;
+              }
+          }
+      }
+  }
+/* Section restaurant page accueil */
+
+.sectionRestaurants {
+    background-color: $colour-menu;
+    padding: 20px;
+    &__card-new{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background: transparent;
+        position: absolute;
+        width: 75%;
+        margin: 20px; 
+        
+         @include table-only{
+          width: 60%;
+         }
+         @include desktop-only{
+          width: 35%;
+         }
+
+        p {
+            background: $colour-newbg;
+            color: $colour-newp;
+            padding: 10px 20px;
+            margin: 0;
+          } 
+    }      
+    &__conteneur-articles{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+        .info-resto {
+            box-shadow: 0px 5px 15px 2px $colour-accent;
+            border-radius: 15px;
+            background-color: $colour-white;
+            width: 100%;
+            margin: 10px;
+              max-width: 550px;
+             
+            
+          }
+          .img-resto{
+            width: 100%;
+            object-fit: cover;
+            height: 150px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            @include table-only{
+              height: 200px;
+             }
+             
+          }
+    
+    }
+    &__description {
+        padding: 10px;
+        flex-direction: column;
+        p {
+            font-size: 18px;
+            margin: 5px;
+          }
+      } 
+      .article_bloc_absolut {
+        padding-right: 10px;
+      } 
+      .carte{
+        display: flex;
+        justify-content: space-between;
+      }
+  }  
+  /* Bouton favoris menu */
+  .far {
+    margin-top: 10px;
+    margin-right: 3%;
+    align-self: baseline;
+    font-size: 30px; 
+  &:hover {
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(355deg, rgb(147, 86, 220) 0%, rgb(255, 121, 218) 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: apparition 1s ease-in-out forwards;
+  }
+}
+
+  @keyframes apparition {
+    0%{
+      opacity: 0.5;
+    }
+    100%{
+      opacity: 1;
+    }
+    
+  }

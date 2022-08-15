@@ -1,0 +1,45 @@
+@mixin box-shadow {
+    box-shadow: 0px 5px 15px 2px $colour-accent;
+}
+
+@mixin border-radius{
+    border-radius: 20px;
+}
+
+@mixin hidden{
+    overflow: hidden;
+}
+
+@mixin img-ratio {
+    height: 250px;
+    border-radius: 0;
+    background-position: center;
+    background-size: cover;
+    width: auto;
+}
+@mixin text-center-center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+@mixin align-center-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+@mixin desktop-only {
+    @media screen and (min-width:map-get($breakpoints, "desktop")){
+        @content;
+    }
+}
+@mixin table-only {
+    @media screen and (min-width:map-get($breakpoints, "table")){
+        @content;
+    }
+}
+@mixin bigScreen-only {
+    @media screen and (min-width:map-get($breakpoints, "bigScreen")){
+        @content;
+    }
+}

@@ -1,0 +1,38 @@
+ /* footer */
+ footer {
+    background-color: $colour-footer;
+    padding: 20px;
+    h4 {
+        font-family: "Shrikhand";
+        font-size: 24px;
+        font-weight: lighter;
+        margin: 20px 0 20px 0;
+        color:$colour-white;
+      }
+      ul {
+        @include table-only{
+          display: inline-block;
+         } 
+
+        list-style-type: none;
+        a {
+            color: $colour-white;
+            width: fit-content;
+            margin: 10px 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i {
+                margin-right: 10px;
+                width: 18px;
+              }
+          }
+      } 
+      @include table-only{
+        text-align: center;
+       } 
+       @include desktop-only{
+        text-align: start;
+       } 
+  }
+

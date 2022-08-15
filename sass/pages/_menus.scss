@@ -1,0 +1,170 @@
+/* image menu */
+.img{
+    &_palette {
+    background-image: url(../images/jay-wennington-N_Y88TWmGwA-unsplash.jpg);
+    }
+
+    &_note {
+      background-image: url(../images/stil-u2Lp8tXIcjw-unsplash.jpg);
+    }
+
+    &_franc {
+      background-image: url(../images/toa-heftiba-DQKerTsQwi0-unsplash.jpg);
+    }
+
+    &_delice {
+      background-image: url(../images/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
+    }
+}
+
+/* menus styles */
+
+.main {
+    background-color: $colour-menu;
+    h1 {
+        margin-right: 50px;
+    }
+    h2 {
+        font-size: 18px;
+        &:after {
+            content: ".";
+            display: block;
+            border-bottom: 4px solid $colour-newbg;
+            width: 45px;
+            margin-top: 5px;
+            font-size: 0px;
+        }
+    }
+    &_img {
+        height: 250px;
+        border-radius: 0;
+        background-position: center;
+        background-size: cover;
+        width: auto;
+        }
+    &_restau {
+        background-color: $colour-menu;
+        margin-top: -40px;
+        border-radius: 35px 35px 0 0;
+        position: relative;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .section {
+        justify-content: center;
+        @include desktop-only{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+         }
+      &_bloc {
+        margin-bottom: 1%;
+        background-color: $colour-menu;
+        padding: 20px;
+        @include desktop-only{
+          width: 50%;
+         }
+       
+        .carte {
+            @include align-center-center;
+            flex-direction: column;
+            &_plat {
+              opacity: 0;
+                width: 100%;
+                max-width: 680px;
+                height: 70px;
+                margin: 10px 0 10px 0;
+                cursor: pointer;
+                @include hidden;
+                background-color: $colour-white;
+                border-radius: 20px;
+                box-shadow: 0px 5px 15px 2px $colour-accent;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &:hover .carte_plat_okmenu {
+                  width: 80px;
+                  i {
+                    transform: rotateZ(-360deg);
+                    transition: 0.3s;
+                  }
+                }
+                
+                &_prix {
+                    width: 15%;
+                    font-weight: bold;
+                    p {
+                        text-align: right;
+                        margin: 32px 15px 0 0;
+                      }
+                  }
+                  &_okmenu {
+                    display: inline-block;
+                    width: 0px;
+                    @include hidden;
+                    height: 100%;
+                    background-color:$colour-tertiaire;
+                    color: $colour-white;
+                    font-size: 24px;
+                    border-radius: 0 15px 15px 0;
+                    cursor: pointer;
+                    @include align-center-center;
+                    transition: all 0.4s;
+                  }  
+                  &_texte {
+                    width: 85%;
+                    padding: 5px 0 5px 10px;
+                    font-size: 14px;
+                    margin: 5px;
+                    @include hidden;
+                    white-space: nowrap;
+                    display: flex;
+                    flex-direction: column;
+                    p {
+                        font-size: 16px;
+                        margin: 5px;
+                        @include hidden;
+                        text-overflow: ellipsis;
+                      }
+                  }
+              }
+          }
+      }
+    }
+
+}
+/***** BOUCLE delay animation entré plats *****/
+@for $i from 1 to 11 
+{
+  .plat_#{$i} 
+  {
+    animation: menuanimation 0.7s ease-in-out forwards 0.20s*$i;
+  }
+}
+// .plat{
+//   &_1 {
+//     animation: menuanimation 0.7s ease-in-out forwards 0.15s;
+//   }
+//   &_2 {
+//     animation: menuanimation 0.7s ease-in-out forwards 0.3s;
+//   }
+//   &_3 {
+//     animation: menuanimation 0.7s ease-in-out forwards 0.45s;
+//   }
+//   &_4 {
+//     animation: menuanimation 0.7s ease-in-out forwards 0.5s;
+//   }
+// }
+@keyframes menuanimation {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+ 
